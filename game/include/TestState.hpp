@@ -8,7 +8,6 @@
 #include "AudioManager.hpp"
 #include "ContentManager.hpp"
 
-
 class TestState : public gjt::GameState
 {
   private:
