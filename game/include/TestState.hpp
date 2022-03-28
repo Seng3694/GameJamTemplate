@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <cstdio>
 
+#include <imgui.h>
+
 #include "GameState.hpp"
 #include "CustomMath.hpp"
 #include "AudioManager.hpp"
@@ -45,6 +47,19 @@ class TestState : public gjt::GameState
             game->getWindowWidth() / 2.0f - bounds.left,
             game->getWindowHeight() / 2.0f - bounds.top);
         fpsText.setOrigin(bounds.width / 2.0f, bounds.height / 2.0f);
+    }
+
+    virtual void ui(float dt) override
+    {
+        if (ImGui::Begin("test"))
+        {
+            if (ImGui::Button("click me"))
+            {
+                printf("clicked!\n");
+            }
+
+            ImGui::End();
+        }
     }
 
     virtual void draw(
