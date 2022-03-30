@@ -5,10 +5,10 @@
 
 #include <imgui.h>
 
-#include "GameState.hpp"
-#include "CustomMath.hpp"
 #include "AudioManager.hpp"
 #include "ContentManager.hpp"
+#include "CustomMath.hpp"
+#include "GameState.hpp"
 
 class TestState : public gjt::GameState
 {
@@ -16,6 +16,8 @@ class TestState : public gjt::GameState
     std::shared_ptr<sf::Font> font;
     sf::Text fpsText;
     char fpsBuffer[32];
+
+    std::shared_ptr<sf::SoundBuffer> sound;
 
   public:
     TestState(gjt::Game *const game, gjt::ServiceLocator *const services) : gjt::GameState(game, services)
@@ -32,8 +34,20 @@ class TestState : public gjt::GameState
         fpsText.setCharacterSize(64);
         fpsText.setFillColor(sf::Color::Black);
         fpsText.setPosition(
-            game->getWindowWidth() / 2.0f, game->getWindowHeight() / 2.0f);
+            {game->getWindowWidth() / 2.0f, game->getWindowHeight() / 2.0f});
         game->setClearColor(sf::Color(0xffb200ff));
+
+        auto audio = services->resolve<gjt::AudioManager<std::string>>();
+        if (audio == nullptr)
+        {
+            services->registerInstance<gjt::AudioManager<std::string>>();
+            audio = services->resolve<gjt::AudioManager<std::string>>();
+        }
+
+        sound = content->loadFromFile<sf::SoundBuffer>("content/lost_old.ogg");
+        audio->createSound("test", sound);
+        audio->queue("test", true);
+        audio->setGeneralVolume(0.5f);
     }
 
     virtual void update(float dt) override
@@ -44,14 +58,14 @@ class TestState : public gjt::GameState
 
         const sf::FloatRect bounds = fpsText.getLocalBounds();
         fpsText.setPosition(
-            game->getWindowWidth() / 2.0f - bounds.left,
-            game->getWindowHeight() / 2.0f - bounds.top);
-        fpsText.setOrigin(bounds.width / 2.0f, bounds.height / 2.0f);
+            {game->getWindowWidth() / 2.0f - bounds.left,
+             game->getWindowHeight() / 2.0f - bounds.top});
+        fpsText.setOrigin({bounds.width / 2.0f, bounds.height / 2.0f});
     }
 
     virtual void ui(float dt) override
     {
-        if (ImGui::Begin("test"))
+       if (ImGui::Begin("test"))
         {
             if (ImGui::Button("click me"))
             {

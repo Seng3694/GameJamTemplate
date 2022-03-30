@@ -2,7 +2,6 @@
 
 #include <memory>
 #include <SFML/Graphics.hpp>
-
 #include "GameState.hpp"
 #include "ServiceLocator.hpp"
 

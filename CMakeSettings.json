@@ -7,7 +7,6 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DSFML_DIR=\"C:\\Users\\Seng\\Dropbox\\Projects\\Libraries/SFML/x64/lib/cmake/SFML\"",
       "buildCommandArgs": "",
       "ctestCommandArgs": ""
     },
@@ -17,11 +16,9 @@
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DSFML_DIR=\"C:\\Users\\Seng\\Dropbox\\Projects\\Libraries/SFML/x64/lib/cmake/SFML\"",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "clang_cl_x64_x64" ],
-      "variables": []
+      "inheritEnvironments": [ "clang_cl_x64_x64" ]
     },
     {
       "name": "x86-Debug",
@@ -29,11 +26,9 @@
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DSFML_DIR=\"C:\\Users\\Seng\\Dropbox\\Projects\\Libraries/SFML/x86/lib/cmake/SFML\"",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x86" ],
-      "variables": []
+      "inheritEnvironments": [ "msvc_x86" ]
     },
     {
       "name": "x86-Clang-Debug",
@@ -41,11 +36,9 @@
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DSFML_DIR=\"C:\\Users\\Seng\\Dropbox\\Projects\\Libraries/SFML/x86/lib/cmake/SFML\"",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "clang_cl_x86" ],
-      "variables": []
+      "inheritEnvironments": [ "clang_cl_x86" ]
     },
     {
       "name": "x64-Release",
@@ -53,11 +46,9 @@
       "configurationType": "RelWithDebInfo",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DSFML_DIR=\"C:\\Users\\Seng\\Dropbox\\Projects\\Libraries/SFML/x64/lib/cmake/SFML\"",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x64_x64" ],
-      "variables": []
+      "inheritEnvironments": [ "msvc_x64_x64" ]
     },
     {
       "name": "x64-Clang-Release",
@@ -65,11 +56,9 @@
       "configurationType": "RelWithDebInfo",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DSFML_DIR=\"C:\\Users\\Seng\\Dropbox\\Projects\\Libraries/SFML/x64/lib/cmake/SFML\"",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "clang_cl_x64_x64" ],
-      "variables": []
+      "inheritEnvironments": [ "clang_cl_x64_x64" ]
     },
     {
       "name": "x86-Clang-Release",
@@ -77,11 +66,9 @@
       "configurationType": "RelWithDebInfo",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DSFML_DIR=\"C:\\Users\\Seng\\Dropbox\\Projects\\Libraries/SFML/x86/lib/cmake/SFML\"",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "clang_cl_x86" ],
-      "variables": []
+      "inheritEnvironments": [ "clang_cl_x86" ]
     },
     {
       "name": "x86-Release",
@@ -89,11 +76,9 @@
       "configurationType": "RelWithDebInfo",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DSFML_DIR=\"C:\\Users\\Seng\\Dropbox\\Projects\\Libraries/SFML/x86/lib/cmake/SFML\"",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x86" ],
-      "variables": []
+      "inheritEnvironments": [ "msvc_x86" ]
     }
   ]
 }

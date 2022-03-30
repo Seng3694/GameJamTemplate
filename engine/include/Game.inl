@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Game.hpp"
+#include <imgui.h>
 #include <imgui-SFML.h>
 
 namespace gjt
@@ -47,5 +48,7 @@ template <typename T> void Game::run()
 
         window.display();
     }
+
+    unload();
 }
 } // namespace gjt

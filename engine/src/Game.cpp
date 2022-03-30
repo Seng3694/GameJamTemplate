@@ -1,6 +1,7 @@
 #include "Game.hpp"
 
 #include <cassert>
+#include <imgui.h>
 #include <imgui-SFML.h>
 #include "AudioManager.hpp"
 #include "ContentManager.hpp"
@@ -48,5 +49,6 @@ void Game::handleEvent(const sf::Event &e, float dt)
 
 void Game::unload()
 {
+    ImGui::SFML::Shutdown(window);
 }
 } // namespace gjt
