@@ -1,3 +1,6 @@
+
+set(SFML_STATIC_LIBRARIES TRUE)
+
 set(SOURCES
 	imgui.cpp
 	imgui_demo.cpp
@@ -8,6 +11,13 @@ set(SOURCES
 	imgui-sfml/imgui-SFML.cpp
 )
 
-add_library(imgui STATIC ${SOURCES})
+add_library(imgui ${SOURCES})
 target_include_directories(imgui PUBLIC . misc/cpp imgui-sfml)
-target_link_libraries(imgui sfml-system sfml-graphics)
+
+find_package(SFML 2.5 COMPONENTS main system graphics REQUIRED)
+
+if(SFML_FOUND)
+
+	target_include_directories(imgui PUBLIC ${SFML_DIR}/../../../include)
+	target_link_libraries(imgui sfml-main sfml-system sfml-graphics)
+endif()
