@@ -1,32 +1,30 @@
 set(ENGINE_HEADERS
+	include/AnimatedSprite.hpp
+	include/Animation.hpp
 	include/AudioManager.hpp
 	include/ContentManager.hpp
 	include/CustomMath.hpp
 	include/Game.hpp
 	include/GameState.hpp
-	include/ParticleSystem.hpp
 	include/ServiceLocator.hpp
+	include/Tileset.hpp
 )
 
 set(ENGINE_SOURCES
+	src/AnimatedSprite.cpp
+	src/Animation.cpp
 	src/Game.cpp
-	src/ParticleSystem.cpp
+	src/Tileset.cpp
 )
+
 add_library(gjt_engine STATIC ${ENGINE_HEADERS} ${ENGINE_SOURCES})
 target_include_directories(gjt_engine PUBLIC include)
 
-target_link_libraries(gjt_engine sfml-main sfml-system sfml-graphics sfml-window sfml-audio)
+find_package(SFML 2.5 COMPONENTS system graphics window audio REQUIRED)
 
-#if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-#	set(PLATFORM_CONFIG x64)
-#elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
-#	set(PLATFORM_CONFIG x86)
-#endif()
-
-#add_custom_command(
-#	TARGET gjt_engine POST_BUILD
-#    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-#            ${CMAKE_SOURCE_DIR}/ext/SFML/extlibs/bin/${PLATFORM_CONFIG}/openal32.dll
-#            $<TARGET_FILE_DIR:gjt_engine>)
+if(SFML_FOUND)
+	target_include_directories(gjt_engine PUBLIC ${SFML_DIR}/../../../include)
+	target_link_libraries(gjt_engine sfml-system sfml-graphics sfml-window sfml-audio)
+endif()
 
 target_link_libraries(gjt_engine imgui)
