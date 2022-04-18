@@ -5,6 +5,10 @@ project(gjt CXX)
 set(MAJOR_VERSION 0)
 set(MINOR_VERSION 0)
 
+if(WIN32)
+	set(SFML_STATIC_LIBRARIES TRUE)
+endif()
+
 set(ENGINE_HEADERS
 	include/AnimatedSprite.hpp
 	include/Animation.hpp
