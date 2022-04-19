@@ -16,7 +16,7 @@ set(ENGINE_HEADERS
 	include/ContentManager.hpp
 	include/CustomMath.hpp
 	include/Game.hpp
-	include/GameState.hpp
+	include/GameScene.hpp
 	include/Line.hpp
 	include/MessageDispatcher.hpp
 	include/MessageSubscriber.hpp

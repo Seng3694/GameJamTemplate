@@ -2,7 +2,7 @@
 
 #include <memory>
 #include <SFML/Graphics.hpp>
-#include "GameState.hpp"
+#include "GameScene.hpp"
 #include "ServiceLocator.hpp"
 
 namespace gjt
@@ -14,8 +14,8 @@ class Game
         const std::string &title, const uint32_t width, const uint32_t height);
     virtual ~Game(){}
 
-    void switchState(
-        std::shared_ptr<GameState> instance, bool unloadPrevious = true,
+    void switchScene(
+        std::shared_ptr<GameScene> instance, bool unloadPrevious = true,
         bool loadNext = true);
 
     void run();
@@ -44,9 +44,9 @@ class Game
     {
         window.setView(window.getDefaultView());
     }
-    inline std::shared_ptr<GameState> getCurrentState()
+    inline std::shared_ptr<GameScene> getCurrentScene()
     {
-        return currentState;
+        return currentScene;
     }
     inline void shouldClose()
     {
@@ -61,7 +61,7 @@ class Game
   protected:
     sf::RenderWindow window;
     ServiceLocator services;
-    std::shared_ptr<GameState> currentState;
+    std::shared_ptr<GameScene> currentScene;
     sf::Color clearColor;
     const uint32_t windowWidth;
     const uint32_t windowHeight;

@@ -6,15 +6,15 @@
 namespace gjt
 {
 
-class GameState
+class GameScene
 {
     friend class Game;
   public:
-    GameState(Game *game, ServiceLocator *services)
+    GameScene(Game *game, ServiceLocator *services)
         : game(game), services(services)
     {
     }
-    virtual ~GameState(){};
+    virtual ~GameScene(){};
 
     virtual void load(){};
     virtual void ui(float dt){};

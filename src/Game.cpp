@@ -17,18 +17,18 @@ Game::Game(
     window.setFramerateLimit(60);
 }
 
-void Game::switchState(
-    std::shared_ptr<GameState> instance, bool unloadPrevious, bool loadNext)
+void Game::switchScene(
+    std::shared_ptr<GameScene> instance, bool unloadPrevious, bool loadNext)
 {
-    if (currentState != nullptr && unloadPrevious)
+    if (currentScene != nullptr && unloadPrevious)
     {
-        currentState->unload();
+        currentScene->unload();
     }
 
-    currentState = instance;
+    currentScene = instance;
 
     if (loadNext)
-        currentState->load();
+        currentScene->load();
 }
 
 void Game::run()
@@ -70,26 +70,26 @@ void Game::load()
 
 void Game::update(float dt)
 {
-    assert(currentState != nullptr);
-    currentState->update(dt);
+    assert(currentScene != nullptr);
+    currentScene->update(dt);
 }
 
 void Game::ui(float dt)
 {
-    assert(currentState != nullptr);
-    currentState->ui(dt);
+    assert(currentScene != nullptr);
+    currentScene->ui(dt);
 }
 
 void Game::draw(float dt, sf::RenderTarget &target, sf::RenderStates states)
 {
-    assert(currentState != nullptr);
-    currentState->draw(dt, target, states);
+    assert(currentScene != nullptr);
+    currentScene->draw(dt, target, states);
 }
 
 void Game::handleEvent(const sf::Event &e, float dt)
 {
-    assert(currentState != nullptr);
-    currentState->handleEvent(e, dt);
+    assert(currentScene != nullptr);
+    currentScene->handleEvent(e, dt);
 }
 
 void Game::unload()
