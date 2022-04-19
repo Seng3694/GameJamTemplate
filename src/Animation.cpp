@@ -64,9 +64,9 @@ void Animation::update(float dt)
         if (looping)
         {
             if (reverse)
-                index = index == 0 ? frames.size() - 1 : index - 1;
+                index = index == 0 ? static_cast<uint32_t>(frames.size() - 1) : index - 1;
             else
-                index = (index + 1) == frames.size() ? 0 : index + 1;
+                index = (index + 1) == static_cast<uint32_t>(frames.size()) ? 0 : index + 1;
         }
         else
         {

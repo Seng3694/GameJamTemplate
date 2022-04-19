@@ -7,7 +7,7 @@ namespace gjt
 
 inline float sign(const float number)
 {
-    return number >= 0 ? 1 : -1;
+    return number >= 0.0f ? 1.0f : -1.0f;
 }
 
 inline float lerp(const float start, const float end, const float value)
